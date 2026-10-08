@@ -1,0 +1,40 @@
+[project]
+name = "record-linkage"
+version = "0.1.0"
+description = "Entity resolution benchmark: deterministic vs probabilistic vs ML/NLP record linkage"
+readme = "README.md"
+authors = [
+    { name = "Antonia Xavier", email = "antonia2301@outlook.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "polars>=2.0.0",
+    "rapidfuzz>=3.14.6",
+    "scikit-learn>=1.9.1",
+    "splink>=5.0.0",
+]
+
+[project.scripts]
+record-linkage = "record_linkage:main"
+
+[build-system]
+requires = ["uv_build>=0.12.24,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: pycodestyle + pyflakes, I: import sorting, B: common bugs, UP: modern syntax
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
