@@ -1,5 +1,27 @@
 # Record Linkage project 
 
+This project aims to build an entity resolution benchmark: deterministic vs probabilistic vs ML/NLP record linkage,served through a simple API.
+
+## What is entity resolution? 
+
+Entity Resolution, also known as Data Matching, addresses the challenge of matching and merging records that correspond to the same real-world object.
+
+The goal is determine which different data records actually represent the same real-world entity despite their differences in multiple datasets
+
+
+### Research questions:
+1. How much recall does probabilistic matching (Fellegi-Sunter via Splink, parameters
+   estimated by EM) gain over deterministic exact-key rules, at what precision cost?
+2. How should the match-score threshold be chosen, and how well calibrated are the
+   match probabilities?
+3. Does a supervised classifier (scikit-learn) on similarity features beat the
+   unsupervised Fellegi-Sunter model when labels exist?
+4. Do semantic embeddings (sentence-transformers) add information beyond character-level
+   string similarity (RapidFuzz) for product names and descriptions?
+5. (Optional) Can an LLM adjudicate borderline pairs (the "clerical review" zone)
+   better than the threshold alone, and at what cost?
+
+
 ## About the data 
 
 Amazon-GoogleProducts benchmark from the Database Group Leipzig,
@@ -11,7 +33,7 @@ This dataset was chosen because it is publicly available and widely used as an e
 
 # Tools used 
 
-
+python 3.12 , 
 
 
 ## bibliography 
